@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    @prefernce = Preference.all[0]
+    @preference = Preference.all[0]
     if !@preference
       @artists = Artist.all
     else
