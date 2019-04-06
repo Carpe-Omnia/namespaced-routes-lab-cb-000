@@ -8,16 +8,16 @@ class SongsController < ApplicationController
       else
         if !!@preference
           @songs = @artist.songs.order(title: @preferences.song_sort_order)
-        else 
+        else
           @songs = @artist.songs
-        end     
+        end
       end
     else
-      if !!@preference 
+      if !!@preference
         @songs = Song.all.order(title: @preferences.song_sort_order)
-      else 
-        @songs = Song.all 
-      end     
+      else
+        @songs = Song.all
+      end
     end
   end
 
@@ -76,4 +76,3 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title, :artist_name)
   end
 end
-
