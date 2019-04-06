@@ -1,10 +1,10 @@
 class ArtistsController < ApplicationController
   def index
     @prefernce = Preference.all[0]
-    if !!@preference
-      @artists = Artist.all.order(name: @preference.artist_sort_order)
-    else
+    if !@preference
       @artists = Artist.all
+    else
+      @artists = Artist.all.order(name: @preference.artist_sort_order)
     end
   end
 
